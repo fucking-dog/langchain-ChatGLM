@@ -571,6 +571,6 @@ with gr.Blocks(css=block_css, theme=gr.themes.Default(**default_theme_args)) as 
  .queue(concurrency_count=3)
  .launch(server_name='127.0.0.1',
          server_port=7860,
-         show_api=False,
+         show_api=True,
          share=False,
          inbrowser=False))
