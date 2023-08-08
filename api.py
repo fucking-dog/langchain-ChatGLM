@@ -438,7 +438,6 @@ async def chat(
         source_documents=[],
     )
 
-
 async def stream_chat(websocket: WebSocket):
     await websocket.accept()
     turn = 1
@@ -521,7 +520,6 @@ async def stream_chat_bing(websocket: WebSocket):
 async def document():
     return RedirectResponse(url="/docs")
 
-
 def api_start(host, port, **kwargs):
     global app
     global local_doc_qa
@@ -577,8 +575,9 @@ def api_start(host, port, **kwargs):
         uvicorn.run(app, host=host, port=port)
 
 
+# 当命令行执行api.py时，
 if __name__ == "__main__":
-    parser.add_argument("--host", type=str, default="0.0.0.0")
+    parser.add_argument("--host", type=str, default="127.0.0.1")
     parser.add_argument("--port", type=int, default=7861)
     parser.add_argument("--ssl_keyfile", type=str)
     parser.add_argument("--ssl_certfile", type=str)
@@ -588,3 +587,5 @@ if __name__ == "__main__":
     args_dict = vars(args)
     shared.loaderCheckPoint = LoaderCheckPoint(args_dict)
     api_start(args.host, args.port, ssl_keyfile=args.ssl_keyfile, ssl_certfile=args.ssl_certfile)
+
+

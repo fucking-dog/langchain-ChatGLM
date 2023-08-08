@@ -16,9 +16,11 @@ def loaderLLM(llm_model: str = None, no_remote_model: bool = False, use_ptuning_
     :param use_ptuning_v2: Use p-tuning-v2 PrefixEncoder
     :return:
     """
+    # 加载LoaderCheckPoint-model
     pre_model_name = loaderCheckPoint.model_name
     llm_model_info = llm_model_dict[pre_model_name]
-
+    
+    # 配置微调或者remotemodel 
     if no_remote_model:
         loaderCheckPoint.no_remote_model = no_remote_model
     if use_ptuning_v2:
@@ -27,7 +29,7 @@ def loaderLLM(llm_model: str = None, no_remote_model: bool = False, use_ptuning_
     # 如果指定了参数，则使用参数的配置
     if llm_model:
         llm_model_info = llm_model_dict[llm_model]
-
+    
     loaderCheckPoint.model_name = llm_model_info['name']
     loaderCheckPoint.pretrained_model_name = llm_model_info['pretrained_model_name']
 

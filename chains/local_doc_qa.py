@@ -9,6 +9,7 @@ from utils import torch_gc
 from tqdm import tqdm
 from pypinyin import lazy_pinyin
 from models.base import (BaseAnswer,
+
                          AnswerResult)
 from models.loader.args import parser
 from models.loader import LoaderCheckPoint

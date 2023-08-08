@@ -222,13 +222,13 @@ llm_model_dict = {
         "provides": "FastChatOpenAILLMChain",
         "local_model_path": None,
         "api_base_url": "https://api.openai.com/v1",
-        "api_key": ""
+        "api_key": "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"
     },
 
 }
 
 # LLM 名称
-LLM_MODEL = "chatglm2-6b-32k"
+LLM_MODEL = "openai-chatgpt-3.5"
 # 量化加载8bit 模型
 LOAD_IN_8BIT = False
 # Load the model with bfloat16 precision. Requires NVIDIA Ampere GPU.
@@ -259,7 +259,12 @@ PROMPT_TEMPLATE = """已知信息：
 
 根据上述已知信息，简洁和专业的来回答用户的问题。如果无法从中得到答案，请说 “根据已知信息无法回答该问题” 或 “没有提供足够的相关信息”，不允许在答案中添加编造成分，答案请使用中文。 问题是：{question}"""
 
-# 缓存知识库数量,如果是ChatGLM2,ChatGLM2-int4,ChatGLM2-int8模型若检索效果不好可以调成’10’
+# # 可代替使用的prompt
+# PROMPT_TEMPLATE = """已知信息：
+# {context}
+# 根据上述已知信息，简洁和专业的来回答用户的问题。如果无法从中得到答案，请忽略，直接使用原LLM_MODEL模型回答问题，不允许在答案中添加编造成分，答案请使用中文。 问题是：{question}"""
+
+# 缓存知识库数量,如果是ChatGLM2,ChatGLM2-int4,ChatGLM2-int8模型若检索效果不好可以调成’10’ 
 CACHED_VS_NUM = 1
 
 # 文本分句长度
