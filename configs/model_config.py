@@ -222,7 +222,7 @@ llm_model_dict = {
         "provides": "FastChatOpenAILLMChain",
         "local_model_path": None,
         "api_base_url": "https://api.openai.com/v1",
-        "api_key": "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"
+        "api_key": ''
     },
 
 }
